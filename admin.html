@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard — The Rooted Parcel</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/auth.css">
+
+  <style>
+    body { background: var(--surface-bg); }
+  </style>
+</head>
+<body>
+  
+  <!-- Single Page App Container for Admin -->
+  <div id="app-content">
+    <!-- Admin scripts will render content here -->
+    <div style="text-align:center; margin-top:20vh; font-family:var(--font-sans); color:var(--text-tertiary);">
+      Loading Secure Environment...
+    </div>
+  </div>
+
+  <!-- Shared Data/Store -->
+  <script src="js/store.js"></script>
+  
+  <!-- Shared Components -->
+  <script src="js/components/toast.js"></script>
+  <script src="js/components/auth.js"></script>
+  
+  <!-- Admin Specific Components -->
+  <script src="js/components/admin-dashboard.js"></script>
+  
+  <!-- Admin App Initialization -->
+  <script src="js/admin-app.js"></script>
+</body>
+</html>

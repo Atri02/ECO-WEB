@@ -1,0 +1,311 @@
+/* =========================================================
+   ORDER PAGES — My Orders, Order Detail, Order Tracking
+   ========================================================= */
+
+/* --- Order Card (My Orders List) --- */
+.order-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-300);
+}
+.order-card-header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-tertiary);
+}
+.order-card-meta { display: flex; flex-direction: column; gap: 4px; }
+.order-id-label {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.order-id-value {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: monospace;
+}
+.order-status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+.order-card-items {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  flex-wrap: wrap;
+}
+.order-item-thumb {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid var(--border-light);
+  flex-shrink: 0;
+}
+.order-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.order-item-more {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: 2px dashed var(--border-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text-tertiary);
+}
+.btn-sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--fs-xs);
+  border-radius: var(--radius-md);
+}
+
+/* --- Order Status Banner --- */
+.order-status-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-500));
+  color: white;
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+.order-status-banner-title { font-size: var(--fs-lg); font-weight: 700; }
+.order-status-banner-desc { font-size: var(--fs-sm); opacity: 0.85; margin-top: 2px; }
+
+/* --- Order Detail Grid --- */
+.order-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-6);
+  align-items: start;
+}
+.order-section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+}
+.order-section-title {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* --- Order Item Row --- */
+.order-item-row {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.order-item-row:last-child { border-bottom: none; }
+.order-item-row-img {
+  width: 64px; height: 64px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 1px solid var(--border-light);
+  transition: transform 0.2s;
+}
+.order-item-row-img:hover { transform: scale(1.05); }
+.order-item-row-img img { width: 100%; height: 100%; object-fit: cover; }
+.order-item-row-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.order-item-row-name { font-size: var(--fs-sm); font-weight: 600; color: var(--text-primary); }
+.order-item-row-cat  { font-size: var(--fs-xs); color: var(--text-tertiary); }
+.order-item-row-price { font-size: var(--fs-sm); color: var(--text-secondary); }
+
+/* =========================================================
+   TRACKING PAGE
+   ========================================================= */
+
+/* Animated Vehicle Strip */
+.tracking-map-strip {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 1px solid var(--color-primary-200);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+[data-theme="dark"] .tracking-map-strip {
+  background: linear-gradient(135deg, rgba(22,163,74,0.1), rgba(21,128,61,0.15));
+}
+.tracking-map-inner {
+  position: relative;
+  height: 52px;
+  margin-bottom: var(--space-3);
+}
+.tracking-road-line {
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary-300), var(--color-primary-500));
+  border-radius: 2px;
+  transform: translateY(-50%);
+}
+.tracking-vehicle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.9rem;
+  transition: left 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+.tracking-map-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-xs);
+  color: var(--color-primary-700);
+  font-weight: 600;
+}
+.tracking-status-live-badge {
+  background: var(--color-primary-600);
+  color: white;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  transition: background 0.3s;
+}
+
+/* Progress Bar */
+.tracking-progress-bar {
+  height: 8px;
+  background: var(--border-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.tracking-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary-500), var(--color-primary-600));
+  border-radius: var(--radius-full);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(22, 163, 74, 0.4);
+}
+
+/* Timeline */
+.tracking-timeline { display: flex; flex-direction: column; }
+.tracking-step {
+  display: flex;
+  gap: var(--space-4);
+  opacity: 0.4;
+  transition: opacity 0.4s;
+}
+.tracking-step.active,
+.tracking-step.completed { opacity: 1; }
+
+.tracking-step-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 44px;
+}
+.tracking-step-circle {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  background: var(--bg-card);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: all 0.4s;
+  z-index: 1;
+}
+.tracking-step.active .tracking-step-circle {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-50);
+  animation: pulse-step 2s ease-in-out infinite;
+}
+.tracking-step.completed .tracking-step-circle {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+}
+@keyframes pulse-step {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(22,163,74,0.12); }
+  50%       { box-shadow: 0 0 0 10px rgba(22,163,74,0.05); }
+}
+.tracking-step-connector {
+  flex: 1;
+  width: 3px;
+  min-height: 36px;
+  background: var(--border-light);
+  margin: 4px 0;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.tracking-step-connector::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: var(--fill, 0%);
+  background: linear-gradient(180deg, var(--color-primary-500), var(--color-primary-400));
+  transition: height 0.8s ease;
+}
+.tracking-step-body {
+  padding: var(--space-2) 0 var(--space-6);
+  flex: 1;
+}
+.tracking-step-label {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.tracking-step.active .tracking-step-label { color: var(--color-primary-600); }
+.tracking-step-desc {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+.tracking-step-time {
+  font-size: var(--fs-xs);
+  color: var(--color-primary-600);
+  font-weight: 600;
+  margin-top: var(--space-1);
+}
+.tracking-step-time.pending {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .order-detail-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .order-card-header { grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+  .order-status-banner { flex-direction: column; align-items: flex-start; }
+  .order-status-banner > div:last-child { margin-left: 0; }
+}
+@media (max-width: 480px) {
+  .order-card-header { grid-template-columns: 1fr; }
+  .order-card-meta { flex-direction: row; justify-content: space-between; align-items: center; }
+}
